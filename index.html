@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facultad de Ingeniería Mochis - UAS | Propuesta de Rediseño</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #003DA5 0%, #001F5C 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-top {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            width: 70px;
+            height: 70px;
+            flex-shrink: 0;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .logo-2029 {
+            width: 120px;
+            height: 50px;
+            flex-shrink: 0;
+        }
+
+        .logo-2029 img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .university-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .faculty-name {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-header {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 8px 20px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .btn-header:hover {
+            background: white;
+            color: #003DA5;
+        }
+
+        /* Navigation */
+        nav {
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-container a {
+            color: #333;
+            text-decoration: none;
+            padding: 15px 25px;
+            display: block;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-container a:hover {
+            background: #003DA5;
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 61, 165, 0.8), rgba(0, 31, 92, 0.8)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><rect fill="%23f0f0f0" width="1200" height="400"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #003DA5;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 30px;
+            border: 2px solid white;
+            font-weight: bold;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #003DA5;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Programs Section */
+        .programs {
+            background: #f9f9f9;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #003DA5;
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: #003DA5;
+            border-radius: 2px;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .program-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .program-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .program-card h3 {
+            color: #003DA5;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .program-card p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .learn-more {
+            color: #003DA5;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .learn-more:hover {
+            transform: translateX(5px);
+        }
+
+        /* News Section */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .news-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .news-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #003DA5 0%, #001F5C 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+        }
+
+        .news-content {
+            padding: 25px;
+        }
+
+        .news-date {
+            color: #999;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .news-card h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .news-card p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        /* Quick Access */
+        .quick-access {
+            background: #003DA5;
+            color: white;
+            padding: 60px 20px;
+        }
+
+        .quick-access .section-title {
+            color: white;
+        }
+
+        .quick-access .section-title::after {
+            background: white;
+        }
+
+        .quick-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .quick-card {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .quick-card:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-5px);
+        }
+
+        .quick-card-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .quick-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .quick-card a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: #222;
+            color: white;
+            padding: 40px 20px 20px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            color: #003DA5;
+            margin-bottom: 15px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            font-size: 1.5rem;
+        }
+
+        .social-icons a {
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #003DA5;
+            transform: scale(1.2);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #999;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .header-top {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .logo-section {
+                flex-wrap: wrap;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .logo {
+                width: 50px;
+                height: 50px;
+            }
+
+            .logo-2029 {
+                width: 100px;
+                height: 40px;
+            }
+
+            .logo, .logo-2029 {
+                margin: 0 auto;
+            }
+
+            .nav-container {
+                flex-direction: column;
+            }
+
+            .nav-container a {
+                border-bottom: 1px solid #eee;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <div class="logo-section">
+                <div class="logo">
+                    <img src="logo-uas.png" alt="Escudo UAS">
+                </div>
+                <div>
+                    <div class="university-name">Universidad Autónoma de Sinaloa</div>
+                    <div class="faculty-name">Facultad de Ingeniería Mochis</div>
+                </div>
+                <div class="logo-2029">
+                    <img src="logo-uas-2029.png" alt="UAS Visión 2029">
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="#" class="btn-header">Portal Alumnos</a>
+                <a href="#" class="btn-header">Portal Docentes</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#inicio">Inicio</a>
+            <a href="#programas">Programas</a>
+            <a href="#admision">Admisión</a>
+            <a href="#investigacion">Investigación</a>
+            <a href="#noticias">Noticias</a>
+            <a href="#contacto">Contacto</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <h1 class="fade-in">Forjando el Futuro de la Ingeniería</h1>
+        <p class="fade-in">Excelencia académica, innovación tecnológica y compromiso social</p>
+        <div class="hero-buttons fade-in">
+            <a href="#programas" class="btn-primary">Conoce Nuestros Programas</a>
+            <a href="#admision" class="btn-secondary">Proceso de Admisión</a>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs" id="programas">
+        <div class="container">
+            <h2 class="section-title">Programas Académicos</h2>
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="program-icon">🏗️</div>
+                    <h3>Ingeniería Civil</h3>
+                    <p>Forma profesionales capaces de diseñar, construir y gestionar infraestructura de calidad para el desarrollo de la sociedad.</p>
+                    <a href="#" class="learn-more">Conoce más →</a>
+                </div>
+                <div class="program-card">
+                    <div class="program-icon">🌍</div>
+                    <h3>Ingeniería Geodésica</h3>
+                    <p>Especialistas en medición y representación del territorio mediante tecnología de punta y sistemas de información geográfica.</p>
+                    <a href="#" class="learn-more">Conoce más →</a>
+                </div>
+                <div class="program-card">
+                    <div class="program-icon">💻</div>
+                    <h3>Ingeniería de Software</h3>
+                    <p>Desarrolla soluciones tecnológicas innovadoras con enfoque en calidad, seguridad y transformación digital.</p>
+                    <a href="#" class="learn-more">Conoce más →</a>
+                </div>
+                <div class="program-card">
+                    <div class="program-icon">⚙️</div>
+                    <h3>Ing. en Procesos Industriales</h3>
+                    <p>Optimiza procesos productivos con enfoque en sustentabilidad, eficiencia y mejora continua.</p>
+                    <a href="#" class="learn-more">Conoce más →</a>
+                </div>
+                <div class="program-card">
+                    <div class="program-icon">🔬</div>
+                    <h3>Ing. en Nanotecnología y Energías Renovables</h3>
+                    <p>Innovación en materiales avanzados y tecnologías limpias para un futuro sustentable.</p>
+                    <a href="#" class="learn-more">Conoce más →</a>
+                </div>
+                <div class="program-card">
+                    <div class="program-icon">🎓</div>
+                    <h3>Posgrados</h3>
+                    <p>Maestría y Doctorado en Ingeniería Civil con enfoque en investigación y desarrollo tecnológico.</p>
+                    <a href="#" class="learn-more">Conoce más →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="container" id="noticias">
+        <h2 class="section-title">Noticias y Eventos</h2>
+        <div class="news-grid">
+            <div class="news-card">
+                <div class="news-image">🏆</div>
+                <div class="news-content">
+                    <p class="news-date">Mayo 2025</p>
+                    <h3>Orgullo FIM: Estudiante gana 2do lugar nacional</h3>
+                    <p>Jorge Daniel Valenzuela Beltrán destaca en el XVI Campeonato Nacional Junior & Sub Junior en Mazatlán.</p>
+                    <a href="#" class="learn-more">Leer más →</a>
+                </div>
+            </div>
+            <div class="news-card">
+                <div class="news-image">🌎</div>
+                <div class="news-content">
+                    <p class="news-date">Marzo 2025</p>
+                    <h3>Clase Espejo con Universidad Continental - Perú</h3>
+                    <p>Colaboración internacional mediante la impartición de clases espejo en análisis estructural.</p>
+                    <a href="#" class="learn-more">Leer más →</a>
+                </div>
+            </div>
+            <div class="news-card">
+                <div class="news-image">📚</div>
+                <div class="news-content">
+                    <p class="news-date">Febrero 2025</p>
+                    <h3>Convocatoria Exámenes Extraordinarios</h3>
+                    <p>Consulta la programación de exámenes extraordinarios para todos los programas académicos.</p>
+                    <a href="#" class="learn-more">Ver programación →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Access Section -->
+    <section class="quick-access">
+        <div class="container">
+            <h2 class="section-title">Acceso Rápido</h2>
+            <div class="quick-grid">
+                <div class="quick-card">
+                    <div class="quick-card-icon">👨‍🎓</div>
+                    <h3>Servicio Social</h3>
+                    <a href="#">Acceder →</a>
+                </div>
+                <div class="quick-card">
+                    <div class="quick-card-icon">📋</div>
+                    <h3>Tutorías</h3>
+                    <a href="#">Acceder →</a>
+                </div>
+                <div class="quick-card">
+                    <div class="quick-card-icon">💼</div>
+                    <h3>Bolsa de Trabajo</h3>
+                    <a href="#">Ver ofertas →</a>
+                </div>
+                <div class="quick-card">
+                    <div class="quick-card-icon">🎯</div>
+                    <h3>Titulación</h3>
+                    <a href="#">Información →</a>
+                </div>
+                <div class="quick-card">
+                    <div class="quick-card-icon">📖</div>
+                    <h3>Biblioteca Virtual</h3>
+                    <a href="#">Acceder →</a>
+                </div>
+                <div class="quick-card">
+                    <div class="quick-card-icon">📅</div>
+                    <h3>Calendario Escolar</h3>
+                    <a href="#">Ver calendario →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p>📍 Los Mochis, Sinaloa, México</p>
+                <p>📞 Teléfono: (668) 812-1818</p>
+                <p>✉️ <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="64070b0a100507100b24020d094a1105174a0100114a091c">[email&#160;protected]</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="#">Misión y Visión</a></li>
+                    <li><a href="#">Directorio</a></li>
+                    <li><a href="#">Transparencia</a></li>
+                    <li><a href="#">Convocatorias</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Servicios</h3>
+                <ul>
+                    <li><a href="#">Portal Alumnos</a></li>
+                    <li><a href="#">Portal Profesores</a></li>
+                    <li><a href="#">Plataforma Moodle</a></li>
+                    <li><a href="#">Sistema PISE</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Síguenos</h3>
+                <div class="social-icons">
+                    <a href="#">📘</a>
+                    <a href="#">📷</a>
+                    <a href="#">🐦</a>
+                    <a href="#">▶️</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Facultad de Ingeniería Mochis - UAS. Todos los derechos reservados.</
